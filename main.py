@@ -20,10 +20,11 @@ while True:
         password = "".join(random.sample(all, length))
         print(password)
         file = open(f"{user_name}.txt" , "a")
-        file.write(f"\n======================\nsite = {site}\nuser_name = {user_name}\ndescription = {description}\nlength of password = {length}\npassword = \n{password}")
+        file.write(f"======================\nsite = \n{site}\n---\nuser_name = \n{user_name}\n---\ndescription = \n{description}\n---\nlength of password = \n{length}\n---\npassword = \n{password}\n")
         file.close()
     elif choise == "2":
-        file = open(f"{user_name}.txt" , "r")
+        file_path = input("enter your user name that you enter first: ")
+        file = open(f"{file_path}.txt" , "r")
         content = file.read()
         print(content)
         print("="*22)
