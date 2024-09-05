@@ -10,7 +10,7 @@ numbers = "0123456789"
 all = lower + uppper + symbols + numbers
 
 while True:
-    print("choose an option :\n\t1) create a password\n\t2) check all of your passwords\n\t3) change password\n\t4) exit")
+    print("choose an option :\n\t1) create a password\n\t2) check your info\n\t3) edit info\n\t4) exit")
     choise = input("your choice : ")
     if choise == "1":
         site = input("enter the site you want to make password for it: ")
@@ -20,7 +20,7 @@ while True:
         password = "".join(random.sample(all, length))
         print(password)
         file = open(f"{user_name}.txt" , "a")
-        file.write(f"\n======================\nsite = {site}\nuser_name = {user_name}\ndescription = {description}\nlength of password = {length}\npassword = {password}")
+        file.write(f"\n======================\nsite = {site}\nuser_name = {user_name}\ndescription = {description}\nlength of password = {length}\npassword = \n{password}")
         file.close()
     elif choise == "2":
         file = open(f"{user_name}.txt" , "r")
