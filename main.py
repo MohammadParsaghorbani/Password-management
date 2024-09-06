@@ -14,7 +14,17 @@ while True:
     choise = input("your choice : ")
     if choise == "1":
         site = input("enter the site you want to make password for it: ")
-        user_name= input(f"enter your user name in {site}: ")
+        wrong = "y"
+        while wrong == "y":
+            try:
+                user_name= input(f"enter your user name in {site}: ")
+                f = open(f"{user_name}.txt")
+                print("this user name is already taken!")
+                wrong = "y"
+                f.close()
+            except IOError:
+                wrong = "n"
+                print("nice!")
         description = input("enter description for your password: ")
         length = int(input("enter the password length : "))
         password = "".join(random.sample(all, length))
