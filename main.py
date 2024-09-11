@@ -14,17 +14,15 @@ while True:
     choise = input("your choice : ")
     if choise == "1":
         site = input("enter the site you want to make password for it: ")
-        wrong = "y"
-        while wrong == "y":
+        while True:
             try:
                 user_name= input(f"enter your user name in {site}: ")
                 f = open(f"{user_name}.txt")
                 print("this user name is already taken!")
-                wrong = "y"
                 f.close()
             except IOError:
-                wrong = "n"
                 print("nice!")
+                break
         description = input("enter description for your password: ")
         length = int(input("enter the password length : "))
         password = "".join(random.sample(all, length))
@@ -33,14 +31,28 @@ while True:
         file.write(f"======================\nsite = \n{site}\n---\nuser_name = \n{user_name}\n---\ndescription = \n{description}\n---\nlength of password = \n{length}\n---\npassword = \n{password}\n")
         file.close()
     elif choise == "2":
-        file_path = input("enter your user name that you enter first: ")
-        file = open(f"{file_path}.txt" , "r")
+        while True:
+            file_path = input("enter your user name that you enter first: ")
+            try:
+                file = open(f"{file_path}.txt")
+                print("nice!")
+                break
+            except IOError:
+                print("no file with this name")
         content = file.read()
         print(content)
         print("="*22)
         file.close()
     elif choise == "3":
-        file_path = input("enter your user name that you enter first: ")
+        # file_path = input("enter your user name that you enter first: ")
+        while True:
+            file_path = input("enter your user name that you enter first: ")
+            try:
+                file = open(f"{file_path}.txt")
+                print("nice!")
+                break
+            except IOError:
+                print("no file with this name")
         with open(f"{file_path}.txt") as file:
             print(file.read())
         def change(file_path,line,text):
