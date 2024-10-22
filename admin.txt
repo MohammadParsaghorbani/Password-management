@@ -1,0 +1,15 @@
+======================
+site = 
+django
+---
+user_name = 
+admin
+---
+description = 
+--
+---
+length of password = 
+8
+---
+password = 
+[XLpDy%2
